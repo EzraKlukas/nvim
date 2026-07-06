@@ -1,0 +1,7 @@
+This is a list of requests for snippets that I have as I am using them. This is to stop me from blocking the flow of the mathematics I'm in, because it's so tempting just to stop everytime.
+
+1. RESOLVED Add another i to the italic text snippet; it's too easily triggerable
+2. in math.lua add a snippet that allows me to work with roots. One idea I have is to have the option for higher roots always (because when you tab through it it's just a square root), but I feel like that'd be clunky, because you'd have sqrt[]{} everytime.
+3. Some type of modifier character that let's me $<placeholder character>$, like maybe ;;<char> or something. It's too tedious to do $D$, and using mmDjk is impractical (it's five keystrokes for one character for petesake).
+4. A snippet that gets me in \[ <> \] mode. I think I literally have this already lol gonna look.
+5. Change boldfont and italic snippets in two ways: Allow triggering on the beginning of the new line, and don't delete the space that is the start of the trigger, like when I press space and then trigger, the boldfont begins right at the end of the word previous, deleting the space that came after it.
