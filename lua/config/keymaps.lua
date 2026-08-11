@@ -7,6 +7,23 @@ map("n", "<M-l>", ":bnext<CR>", { silent = true })
 map("n", "<M-h>", ":bprevious<CR>", { silent = true })
 map("n", "<Leader>bd", ":bp | sp | bn | bd<CR>", { silent = true, desc = "Delete buffer keeping layout" })
 
+-- Verilog / SystemVerilog helpers
+map("n", "<leader>vf", function()
+	require("conform").format({ async = true, lsp_format = "fallback" })
+end, { desc = "Format HDL buffer" })
+
+map("n", "<leader>vv", ":w<CR>:!verilator --sv --lint-only --Wall %<CR>", {
+	desc = "Verilator lint current HDL file",
+})
+
+map("n", "<leader>vl", ":w<CR>:!verible-verilog-lint %<CR>", {
+	desc = "Verible lint current HDL file",
+})
+
+map("n", "<leader>vi", ":LspSvlangserverBuildIndex<CR>", {
+	desc = "SystemVerilog build index",
+})
+
 -- Rust / Cargo commands
 map("n", "<leader>rr", ":w<CR>:!cargo run<CR>", {
 	desc = "Cargo run",
