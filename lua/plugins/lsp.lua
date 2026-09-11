@@ -36,6 +36,25 @@ return {
 
 			vim.lsp.enable("rust_analyzer")
 
+			-- Python
+			vim.lsp.config("basedpyright", {
+				settings = {
+					basedpyright = {
+						-- Ruff provides import organization.
+						disableOrganizeImports = true,
+
+						analysis = {
+							-- A useful balance for learning without excessive noise.
+							typeCheckingMode = "standard",
+							autoImportCompletions = true,
+						},
+					},
+				},
+			})
+
+			vim.lsp.enable("basedpyright")
+			vim.lsp.enable("ruff")
+
 			-- Treat FPGA constraint files as Tcl, and *.mk as Makefiles.
 			vim.filetype.add({
 				extension = {

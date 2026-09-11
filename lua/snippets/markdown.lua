@@ -5,12 +5,14 @@ local f = ls.function_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 local function today()
-    return os.date("%Y-%m-%d")
+	return os.date("%Y-%m-%d")
 end
 
 return {
-s({ trig = "dailylog", dscr = "Daily note template" },
-    fmta([[
+	s(
+		{ trig = "dailylog", dscr = "Daily note template" },
+		fmta(
+			[[
 # {date}
 
 ## Focus
@@ -19,32 +21,21 @@ s({ trig = "dailylog", dscr = "Daily note template" },
 ## Progress
 - 
 
-## Blockers
-- 
-
-## Debug Log
-- Issue:
-- Attempt:
-- Result:
-
-## Insights
-- 
-
 ## Next Steps
 - [ ] 
-
-## References
-- 
 ]],
-    {
-        date = f(today),
-        focus = i(1),
-    },
-    { delimiters = "{}" })
-),
+			{
+				date = f(today),
+				focus = i(1),
+			},
+			{ delimiters = "{}" }
+		)
+	),
 
-    s({ trig = "topiclog", dscr = "New dated topic log section" },
-        fmta([[
+	s(
+		{ trig = "topiclog", dscr = "New dated topic log section" },
+		fmta(
+			[[
 ---
 
 ## <>
@@ -64,14 +55,17 @@ s({ trig = "dailylog", dscr = "Daily note template" },
 ### Next steps
 - 
 ]],
-        {
-            f(today),
-            i(1),
-        })
-    ),
+			{
+				f(today),
+				i(1),
+			}
+		)
+	),
 
-    s({ trig = "topicnote", dscr = "New topic note template" },
-        fmta([[
+	s(
+		{ trig = "topicnote", dscr = "New topic note template" },
+		fmta(
+			[[
 # <>
 
 ## Overview
@@ -103,10 +97,11 @@ s({ trig = "dailylog", dscr = "Daily note template" },
 ### Next steps
 - 
 ]],
-        {
-            i(1, "Topic Title"),
-            f(today),
-            i(2),
-        })
-    ),
+			{
+				i(1, "Topic Title"),
+				f(today),
+				i(2),
+			}
+		)
+	),
 }

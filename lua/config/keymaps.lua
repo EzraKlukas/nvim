@@ -7,6 +7,30 @@ map("n", "<M-l>", ":bnext<CR>", { silent = true })
 map("n", "<M-h>", ":bprevious<CR>", { silent = true })
 map("n", "<Leader>bd", ":bp | sp | bn | bd<CR>", { silent = true, desc = "Delete buffer keeping layout" })
 
+-- python shortcuts
+map("n", "<leader>rn", vim.lsp.buf.rename, {
+	desc = "Rename symbol",
+})
+
+map("n", "gy", vim.lsp.buf.type_definition, {
+	desc = "Go to type definition",
+})
+
+map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", {
+	desc = "Find document symbols",
+})
+
+map("n", "<leader>lS", "<cmd>FzfLua lsp_workspace_symbols<CR>", {
+	desc = "Find workspace symbols",
+})
+
+map("n", "<leader>lh", function()
+	local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+	vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+end, {
+	desc = "Toggle inlay hints",
+})
+
 -- Verilog / SystemVerilog helpers
 map("n", "<leader>vf", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
